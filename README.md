@@ -15,15 +15,24 @@
 
 <img src="./img/Test_box_1.jpg" width = "650"  alt="图片名称" align=center />
 
-#### 调用方式
+#### 代码编译方式
 ```bash
 # clone该工程
 cd Video_Face
 mkdir build
 cd build
 cmake ..
-make # 即可在build文件夹中生成可执行程序，调用方式见[博客](https://wxjwjj.github.io/2018/05/04/reallandmark/)
+make # 即可在build文件夹中生成可执行程序
 ```
+#### 可执行程序调用方式
+```bash
+./real_dlib_muban_roi
+./real_dlib 
+./real_seeta.cpp
+./video_Seeta_Track
+./build/Pic_LandMark68 1.png ./model/seeta_fd_frontal_v1.0.bin
+```
+具体见[博客](https://wxjwjj.github.io/2018/05/04/reallandmark/)
 
 PS：`dlib`、`Seetaface`的相关代码我也一起打包到工程中了，如果你自己编译安装了OpenCV，用上述CMakeLists.txt便可以。如果你没有编译OpenCV，恰巧又是Mac平台，可以使用我编译好的OpenCV动态库，就在`libs`文件夹内，OpenCV头文件在`include`文件夹。
 
