@@ -1,0 +1,77 @@
+cmake_minimum_required(VERSION 2.8.12)
+
+project(examples)
+
+add_subdirectory(dlib dlib_build)  
+
+add_subdirectory(FaceDetection Face_build)
+
+include_directories(${PROJECT_SOURCE_DIR}/include)
+link_directories(${PROJECT_SOURCE_DIR}/libs)
+
+# find_package(OpenCV)
+
+list(APPEND OpenCV_LIBS 
+opencv_aruco
+opencv_bgsegm
+opencv_bioinspired
+opencv_calib3d
+opencv_ccalib
+opencv_core
+opencv_datasets
+opencv_dnn
+opencv_dnn_objdetect
+opencv_dpm
+opencv_face
+opencv_features2d
+opencv_flann
+opencv_fuzzy
+opencv_hdf
+opencv_hfs
+opencv_highgui
+opencv_img_hash
+opencv_imgcodecs
+opencv_imgproc
+opencv_line_descriptor
+opencv_ml
+opencv_objdetect
+opencv_optflow
+opencv_phase_unwrapping
+opencv_photo
+opencv_plot
+opencv_reg
+opencv_rgbd
+opencv_saliency
+opencv_shape
+opencv_stereo
+opencv_stitching
+opencv_structured_light
+opencv_superres
+opencv_surface_matching
+opencv_text
+opencv_tracking
+opencv_video
+opencv_videoio
+opencv_videostab
+opencv_xfeatures2d
+opencv_ximgproc
+opencv_xobjdetect
+opencv_xphoto
+)
+
+add_executable(video_Seeta_Track video_Seeta_Track.cpp)
+target_link_libraries(video_Seeta_Track dlib seeta_facedet_lib ${OpenCV_LIBS})
+
+add_executable(real_dlib_muban_roi real_dlib_muban_roi.cpp)
+target_link_libraries(real_dlib_muban_roi dlib seeta_facedet_lib ${OpenCV_LIBS})
+
+add_executable(real_dlib real_dlib.cpp)
+target_link_libraries(real_dlib dlib seeta_facedet_lib ${OpenCV_LIBS})
+
+add_executable(real_seeta real_seeta.cpp)
+target_link_libraries(real_seeta dlib seeta_facedet_lib ${OpenCV_LIBS})
+
+add_executable(Pic_LandMark68 Pic_LandMark68.cpp)
+target_link_libraries(Pic_LandMark68 dlib seeta_facedet_lib ${OpenCV_LIBS})
+
+
